@@ -1,3 +1,7 @@
+terraform {
+  required_version = ">= 1.3.9"
+}
+
 # variable "cluster_name" {
 #   description = "Name of the cluster"
 #   type        = string
@@ -5,7 +9,6 @@
 
 variable "access_key" { }
 variable "secret_key" { }
-
 
 provider "aws" {
   region = "us-east-1"
