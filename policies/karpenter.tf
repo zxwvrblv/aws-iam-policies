@@ -1,7 +1,7 @@
-variable "cluster_name" {
-  description = "Name of the cluster"
-  type        = string
-}
+# variable "cluster_name" {
+#   description = "Name of the cluster"
+#   type        = string
+# }
 
 variable "access_key" { }
 variable "secret_key" { }
@@ -34,7 +34,7 @@ resource "aws_iam_role" "karpenter_controller_role" {
 }
 
 resource "aws_iam_role_policy" "karpenter_controller" {
-  name = "karpenter-policy-${var.cluster_name}"
+  name = "karpenter-policy-voltron"
   role = aws_iam_role.karpenter_controller_role.id
 
   policy = jsonencode({
