@@ -13,18 +13,18 @@ terraform {
 #   type        = string
 # }
 
-variable "access_key" { }
-variable "secret_key" { }
+# variable "access_key" { }
+# variable "secret_key" { }
 
 provider "aws" {
   region = "us-east-1"
-  access_key = var.access_key
-  secret_key = var.secret_key
+  # access_key = var.access_key
+  # secret_key = var.secret_key
 }
 
 resource "aws_iam_role" "karpenter_controller_role" {
 
-  name = "voltron_controller_role"
+  name = "minikube_controller_role"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -43,7 +43,7 @@ resource "aws_iam_role" "karpenter_controller_role" {
 }
 
 resource "aws_iam_role_policy" "karpenter_controller" {
-  name = "karpenter-policy-voltron"
+  name = "karpenter-policy"
   role = aws_iam_role.karpenter_controller_role.id
 
   policy = jsonencode({
